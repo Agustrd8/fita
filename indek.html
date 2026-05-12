@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love Hologram</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="screen active" id="loginScreen">
+    <div class="login-box">
+      <h1>Masukkan Sandi</h1>
+
+      <input type="password" id="passwordInput" placeholder="Masukkan sandi..." />
+
+      <button onclick="checkPassword()">Buka</button>
+
+      <p id="errorText"></p>
+    </div>
+  </div>
+
+  <div class="screen" id="hologramScreen">
+
+    <div class="stars"></div>
+
+    <div id="heartContainer">
+      <div class="heart"></div>
+    </div>
+
+    <div id="loveContent">
+
+      <h1>I love you fita</h1>
+
+      <div class="photo-gallery">
+        <img src="foto 1.jpg" alt="Foto 1">
+        <img src="foto 2.jpg" alt="Foto 2">
+      </div>
+
+    </div>
+
+  </div>
+
+<script>
+  function checkPassword() {
+    const password = document.getElementById("passwordInput").value;
+    const errorText = document.getElementById("errorText");
+
+    if(password === "SAYANG") {
+
+      document.getElementById("loginScreen").classList.remove("active");
+      document.getElementById("hologramScreen").classList.add("active");
+
+      // Setelah 5 detik hologram berubah menjadi tulisan + foto
+      setTimeout(() => {
+        document.getElementById("heartContainer").style.display = "none";
+        document.getElementById("loveContent").style.display = "flex";
+      }, 5000);
+
+    } else {
+      errorText.innerText = "Sandi salah!";
+    }
+  }
+</script>
+
+</body>
+</html>
